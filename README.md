@@ -7,7 +7,7 @@ After cloning this repository.
 
 ``` 
 git clone  https://github.com/Ravineesh/grabThatTweet.git 
-cd grabThatTweet 
+cd grabThatTweet/src 
 ```
 
 Run the following command.
