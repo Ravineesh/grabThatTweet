@@ -11,12 +11,12 @@ cd grabThatTweet/src
 ```
 
 Before running the utlity you have export the `API_KEY`, `API_SECRET_KEY`, `ACCESS_TOKEN`, `ACCESS_TOKEN_SECRET` in your command line. These keys can be generated from your Twitter Developer account.
-
- `` $export  API_KEY='your_api_key' ``
- `` $export  API_SECRET_KEY='your_api_secret_key' ``
- `` $export  ACCESS_TOKEN='your_access_token' ``
- `` $export  ACCESS_TOKEN_SECRET='your_access_token_secret' ``
- 
+```
+ $export  API_KEY='your_api_key'
+ $export  API_SECRET_KEY='your_api_secret_key'
+ $export  ACCESS_TOKEN='your_access_token'
+ $export  ACCESS_TOKEN_SECRET='your_access_token_secret'
+```
 
 
 Run the following command.
