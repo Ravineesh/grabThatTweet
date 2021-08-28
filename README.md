@@ -39,8 +39,8 @@ Output csv file will contain the following fields
 | language | language of tweet |
 | tweet_text | tweet text |
 | tweet_creation_date | creation date of tweet |
-| retweets_count | retweet counts |
-| likes_count | likes count |
+| retweets_count | number of users retweeted the tweet |
+| likes_count | number of users who likes the tweet |
 | hashtag | list of hashtags if present in tweet else none |
 | user_mention | list of user mentions if present in tweet else none |
 
