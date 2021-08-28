@@ -3,7 +3,6 @@ import os
 import config
 import tweepy
 import datetime
-import pandas as pd
 import time
 
 # Creating an OAuthHandler instance.
@@ -35,33 +34,15 @@ def fetch_tweets(twitter_handle, tweet_limit, output_dir):
             config.like_count.append(tweet._json["favorite_count"])
 
             # If tweet contains hashtags
-            if len(tweet._json["entities"]["hashtags"]) > 0:
-                for i in range(0, len(tweet._json["entities"]["hashtags"])):
-                    hashtag_str = hashtag_str + tweet._json["entities"]["hashtags"][i]['text']
-                    hashtag_str = hashtag_str + ","
+            config.hashtag.append(util.extract_hash_tags(tweet._json["entities"]["hashtags"]))
 
-                config.hashtag.append(hashtag_str)
-            else:
-                config.hashtag.append("#none")
-
-            # If tweet contains user mentions
-            if len(tweet._json["entities"]["user_mentions"]) > 0:
-                for j in range(0, len(tweet._json["entities"]["user_mentions"])):
-                    user_mention_str = user_mention_str + tweet._json["entities"]["user_mentions"][j]['screen_name']
-                    user_mention_str = user_mention_str + ","
-
-                config.user_mention.append(user_mention_str)
-            else:
-                config.user_mention.append("#none")
+            # If tweet contains user_mentions
+            config.user_mention.append(util.extract_user_mention(tweet._json["entities"]["user_mentions"]))
 
     tweet_data = zip(config.user_name, config.user_id, config.user_screen_name, config.source,
                      config.language, config.tweet_text, config.tweet_creation_date,
                      config.retweets_count, config.like_count, config.hashtag, config.user_mention)
-    df = pd.DataFrame(tweet_data, columns=config.tweet_columns)
-
-    print('Total number of tweet fetched are ', len(df))
-
-    df.to_csv(os.path.join(output_dir, config.FILE_NAME), index=False, header=True)
+    util.write_output(tweet_data, output_dir)
 
 
 if __name__ == "__main__":
