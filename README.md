@@ -10,7 +10,7 @@ git clone  https://github.com/Ravineesh/grabThatTweet.git
 cd grabThatTweet/src 
 ```
 
-Before running the utlity you have export the `API_KEY`, `API_SECRET_KEY`, `ACCESS_TOKEN`, `ACCESS_TOKEN_SECRET` in your command line. These keys can be generated from your Twitter Developer account.
+Before running the utlity you have export the `API_KEY`, `API_SECRET_KEY`, `ACCESS_TOKEN`, `ACCESS_TOKEN_SECRET` via tha command line. These keys can be generated from your Twitter Developer account.
 ```
  $export  API_KEY='your_api_key'
  $export  API_SECRET_KEY='your_api_secret_key'
