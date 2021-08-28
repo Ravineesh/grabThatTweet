@@ -35,7 +35,7 @@ Output csv file will contain the following fields
 | user_name | twitter handle of user |
 | user_id | user id of user |
 | user_screen_name | user screen name |
-| source | source of tweet i.e. mobile of web client |
+| source | source of tweet i.e. mobile or web client |
 | language | language of tweet |
 | tweet_text | tweet text |
 | tweet_creation_date | creation date of tweet |
