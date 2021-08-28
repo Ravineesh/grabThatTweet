@@ -28,3 +28,19 @@ Run the following command.
 - `--tweet_limit` : The maximum limit of tweets to be fetched.
 - `--output_dir`: The path of csv file which contains tweets of user
  
+Output csv file will contain the following fields
+
+| Command | Description |
+| --- | --- |
+| user_name | twitter handle of user |
+| user_id | user id of user |
+| user_screen_name | user screen name |
+| source | source of tweet i.e. mobile of web client |
+| language | language of tweet |
+| tweet_text | tweet text |
+| tweet_creation_date | creation date of tweet |
+| retweets_count | retweet counts |
+| likes_count | likes count |
+| hashtag | list of hashtags if present in tweet else none |
+| user_mention | list of user mentions if present in tweet else none |
+
