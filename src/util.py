@@ -4,6 +4,7 @@ import config
 
 
 def extract_hash_tags(hash_tag_entries):
+    """Return the list of hashtags if present in a tweet"""
     hash_tag_list = []
     hashtag = ""
     if len(hash_tag_entries) > 0:
@@ -17,6 +18,7 @@ def extract_hash_tags(hash_tag_entries):
 
 
 def extract_user_mention(user_mention_entries):
+    """Return the list of user mentions if present in a tweet"""
     user_mention_list = []
     user_mention = ""
     if len(user_mention_entries) > 0:
@@ -30,6 +32,7 @@ def extract_user_mention(user_mention_entries):
 
 
 def write_output(tweet_data, output_dir):
+    """Write the csv file into the path"""
     df = pd.DataFrame(tweet_data, columns=config.tweet_columns)
     print('Total number of tweet fetched are', len(df))
     df.to_csv(os.path.join(output_dir, config.FILE_NAME), index=False, header=True)
