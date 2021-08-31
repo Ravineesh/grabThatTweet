@@ -25,7 +25,6 @@ def fetch_tweets(twitter_handle, tweet_limit, output_dir):
     :param tweet_limit: number of tweets to be fetched (upper cap)
     :param output_dir: path to save the csv file.
     :return : no value
-
     """
     tweets = tweepy.Cursor(api.user_timeline, id=twitter_handle, tweet_mode='extended').items(tweet_limit)
     startDate = datetime.datetime(2012, 1, 1, 0, 0, 0)
