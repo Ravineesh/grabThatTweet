@@ -15,13 +15,23 @@ api = tweepy.API(auth)
 
 
 def fetch_tweets(twitter_handle, tweet_limit, output_dir):
+    """Fetch the tweets from Twitter API and writes the output in csv file.
+    
+    The user provide the twitter handle and the tweet limit (upper cap)
+    and the within the specified start and end date the tweets of the 
+    user will be saved in a csv file.  
+    
+    :param twitter_handle: twitter handle of the user
+    :param tweet_limit: number of tweets to be fetched (upper cap)
+    :param output_dir: path to save the csv file.
+    :return : no value
+
+    """
     tweets = tweepy.Cursor(api.user_timeline, id=twitter_handle, tweet_mode='extended').items(tweet_limit)
     startDate = datetime.datetime(2012, 1, 1, 0, 0, 0)
     endDate = datetime.datetime(2021, 9, 24, 0, 0, 0)
 
     for tweet in tweets:
-        hashtag_str = ""
-        user_mention_str = ""
         if (tweet.created_at > startDate) & (tweet.created_at < endDate):
             config.user_name.append(tweet.user.name)
             config.user_id.append(tweet.user.id_str)
@@ -39,10 +49,12 @@ def fetch_tweets(twitter_handle, tweet_limit, output_dir):
             # If tweet contains user_mentions
             config.user_mention.append(util.extract_user_mention(tweet._json["entities"]["user_mentions"]))
 
-    tweet_data = zip(config.user_name, config.user_id, config.user_screen_name, config.source,
-                     config.language, config.tweet_text, config.tweet_creation_date,
-                     config.retweets_count, config.like_count, config.hashtag, config.user_mention)
-    util.write_output(tweet_data, output_dir)
+    util.write_output(
+        zip(config.user_name, config.user_id, config.user_screen_name, config.source,
+        config.language, config.tweet_text, config.tweet_creation_date,
+        config.retweets_count, config.like_count, config.hashtag, config.user_mention) ,
+        output_dir
+        )
 
 
 if __name__ == "__main__":
