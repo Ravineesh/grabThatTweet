@@ -1,6 +1,6 @@
 # grabThatTweet
 
-A command line utility to fetch the tweets of user.
+A command line utility to fetch the tweets of a twitter user.
 
 # Installation instruction
 After cloning this repository.
